@@ -62,3 +62,21 @@ snippet css
 
 snippet script
 	script src="${1:script.js}" type="text/javascript"
+snippet ff
+	= form_for @${1:model} do |f|
+		${0}
+snippet ffl
+	= f.label :${0:attribute}
+snippet fftf
+	= f.text_field :${0:attribute}
+snippet ffta
+	= f.text_area :${0:attribute}
+snippet ffpf
+	= f.password_field :${0:attribute}
+snippet ffs
+	= f.submit
+snippet lip
+	= link_to ${1:link}, ${0:path}
+snippet each
+	- ${1}.each do |${2}|
+		${0}
