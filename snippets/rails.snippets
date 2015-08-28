@@ -107,7 +107,11 @@ snippet defupdate
 	end
 snippet defparams
 	def ${1:model_class_name}_params
-		params.require(:$1).permit()
+		params.require(:$1).permit($0)
+	end
+snippet deffind
+	def find_${1:model}
+		@$1 = ${2:ModalClassName}.find(params[:id])
 	end
 snippet dele delegate .. to
 	delegate :${1:methods}, to: :${0:object}
@@ -118,11 +122,11 @@ snippet amc
 snippet flash
 	flash[:${1:notice}] = '${0}'
 snippet habtm
-	has_and_belongs_to_many :${1:object}, join_table: '${2:table_name}', foreign_key: '${3}_id'
+	has_and_belongs_to_many :${1:object}
 snippet hm
-	has_many :${0:object}
+	has_many :${0:object}s
 snippet hmd
-	has_many :${1:other}s, class_name: '${2:$1}', foreign_key: '${3:$1}_id', dependent: :destroy
+	has_many :${1:other}s, dependent: :destroy
 snippet hmt
 	has_many :${1:object}, through: :${0:object}
 snippet ho
@@ -418,8 +422,42 @@ snippet tctss
 #     Rspec snippets     #
 ##########################
 #ShouldaMatchers#ActionController
-snippet isfp
-	it { should filter_param :${0:key} }
+snippet bi
+	before { ${0} }
+snippet subj
+	subject { ${0} }
+snippet be
+	before do
+	  ${0}
+	end
+snippet iti
+	it { should ${0} }
+snippet isc
+	it { should have_content('${0}') }
+snippet ist
+	it { should have_title('${0}') }
+snippet leto
+	let (:${1:object}) { FactoryGirl.create(:$1) }
+snippet vis
+	visit ${0:path}
+snippet cli
+	click_link "${0:link}"
+snippet cbu
+	click_button "${0:button}"
+snippet desc
+	describe '${1:task}' do
+		${2}
+	end
+snippet fill
+	fill_in "${1:field}", with: "${2:value}"
+snippet fea
+	feature "${1:task}" do
+		${2}
+	end
+snippet scen
+	scenario "${1:task}" do
+		${2}
+	end
 snippet isrt
 	it { should redirect_to ${0:url} }
 snippet isrtp
