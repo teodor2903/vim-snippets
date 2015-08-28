@@ -1,13 +1,3 @@
-snippet art
-	assert_redirected_to ${1:action}: '${2:index}'
-snippet artnp
-	assert_redirected_to ${1:parent}_${2:child}_path(${3:@$1}, ${0:@$2})
-snippet artnpp
-	assert_redirected_to ${1:parent}_${2:child}_path(${0:@$1})
-snippet artp
-	assert_redirected_to ${1:model}_path(${0:@$1})
-snippet artpp
-	assert_redirected_to ${0:model}s_path
 snippet asd
 	assert_difference '${1:Model}.${2:count}', ${3:1} do
 		${0}
