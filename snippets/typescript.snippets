@@ -1,0 +1,121 @@
+# if
+snippet if
+	if (${1:true}) {
+		${0}
+	}
+# if ... else
+snippet ife
+	if (${1:true}) {
+		${2}
+	} else {
+		${0}
+	}
+# tertiary conditional
+snippet ter
+	${1:/* condition */} ? ${2:/* if true */} : ${0:/* if false */}
+# switch
+snippet switch
+	switch (${1:expression}) {
+		case '${3:case}':
+			${4}
+			break;
+		${0}
+		default:
+			${2}
+	}
+# case
+snippet case
+	case '${1:case}':
+		${2}
+		break;
+	${0}
+# try
+snippet try
+	try {
+		${1}
+	} catch (${2:e}) {
+		${0:/* handle error */}
+	}
+# try finally
+snippet tryf
+	try {
+		${1}
+	} catch (${2:e}) {
+		${0:/* handle error */}
+	} finally {
+		${3:/* be executed regardless of the try / catch result*/}
+	}
+# throw Error
+snippet terr
+	throw new Error('${1:error message}')
+# return
+snippet ret
+	return ${0:result};
+
+# Loops
+
+# for loop
+snippet for
+	for (let ${2:i} = 0, l = ${1:arr}.length; $2 < l; $2++) {
+		let ${3:v} = $1[$2];${0:}
+	}
+# Reversed for loop
+snippet forr
+	for (let ${2:i} = ${1:arr}.length - 1; $2 >= 0; $2--) {
+		let ${3:v} = $1[$2];${0:}
+	}
+# While loop
+snippet wh
+	while (${1:/* condition */}) {
+		${0}
+	}
+# Do while loop
+snippet do
+	do {
+		${0}
+	} while (${1:/* condition */});
+# For in loop
+snippet fori
+	for (let ${1:prop} in ${2:object}) {
+		${0:$2[$1]}
+	}
+# For of loop
+snippet fori
+	for (let ${1:prop} of ${2:object}) {
+		${0:$2[$1]}
+	}
+# JSON.parse
+snippet jsonp
+	JSON.parse(${0:jstr});
+# JSON.stringify
+snippet jsons
+	JSON.stringify(${0:object});
+
+# Debugging
+snippet de
+	debugger;
+# console.log
+snippet cl
+	console.log(${0});
+# console.debug
+snippet cd
+	console.debug(${0});
+# console.err
+snippet ce
+	console.err(${0});
+# console.trace
+snippet ct
+	console.trace(${0:label});
+# console.time
+snippet ctime
+	console.time(${0:label});
+# console.assert
+snippet ca
+	console.assert(${1:expression}, ${0:obj});
+# console.dir
+snippet cdir
+	console.dir(${0:obj});
+
+# setTimeout function
+snippet timeout
+	setTimeout(function () {${0}}${2}, ${1:10});
